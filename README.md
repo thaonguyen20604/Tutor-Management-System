@@ -57,52 +57,52 @@ flowchart LR
 
 # API Endpoints (Summary)
 Authentication
-| Method | Endpoint         | Description                     |
-| ------ | ---------------- | ------------------------------- |
-| POST   | `/auth/login`    | User login                      |
-| POST   | `/auth/register` | Create new user (Tutor/Student) |
-
+| Method | Endpoint                            | Description                                             |
+| ------ | ----------------------------------- | ------------------------------------------------------- |
+| POST   | `/auth/login`                       | Login with username & password                          |
+| POST   | `/auth/signup`                      | Create new account (username, email, password, role, …) |
+| PATCH  | `/auth/password`                    | Change password                                         |
+| POST   | `/auth/forgot-password/request-otp` | Request OTP for password reset                          |
+| POST   | `/auth/forgot-password/reset`       | Reset password using OTP                                |
+| GET    | `/auth/verify`                      | Verify OTP & update new password                        |
+| PATCH  | `/auth/update-role`                 | Internal API — update user role                         |
+| GET    | `/`                                 | Root check                                              |
   
 
-Tutors
-| Method | Endpoint               | Description                              |
-| ------ | ---------------------- | ---------------------------------------- |
-| GET    | `/tutors/{id}`         | Get tutor details                        |
-| POST   | `/tutors/`             | Create tutor profile                     |
-| PUT    | `/tutors/{id}`         | Update tutor profile                     |
-| GET    | `/tutors/pending`      | Get list of tutors awaiting verification |
-| POST   | `/tutors/{id}/approve` | Approve tutor                            |
-| POST   | `/tutors/{id}/reject`  | Reject tutor                             |
+Users
+| Method | Endpoint                       | Description                                      |
+| ------ | ------------------------------ | ------------------------------------------------ |
+| POST   | `/user/create`                 | Create a new user (username, email, name, phone) |
+| GET    | `/user/by-email/{email}`       | Get user info by email                           |
+| GET    | `/user/me`                     | Get current authenticated user                   |
+| GET    | `/user/by-id/{user_id}`        | Get user info by ID                              |
+| GET    | `/user/by-username/{username}` | Get user info by username                        |
+| POST   | `/user/{user_id}/debit`        | Deduct money from user balance                   |
+| POST   | `/user/{user_id}/deposit`      | Add money to user balance                        |
+| PATCH  | `/user/{user_id}/update`       | Update user data                                 |
+| GET    | `/`                            | Root endpoint                                    |
+
 
 Documents
-| Method | Endpoint                     | Description                             |
-| ------ | ---------------------------- | --------------------------------------- |
-| POST   | `/documents/upload`          | Upload document (ID, certificate, etc.) |
-| GET    | `/documents/tutor/{id}`      | Get documents by tutor ID               |
-| PATCH  | `/documents/{doc_id}/status` | Update document status                  |
+| Method | Endpoint                                | Description                                     |
+| ------ | --------------------------------------- | ----------------------------------------------- |
+| GET    | `/academic/tutor-profiles`              | List tutor profiles (filter by user_id, status) |
+| POST   | `/academic/tutor-profiles`              | **Upload tutor CV** (multipart/form-data)       |
+| GET    | `/academic/tutor-profiles/{profile_id}` | Get tutor profile details                       |
+| PATCH  | `/academic/tutor-profiles/{profile_id}` | Update tutor profile (status, bio, etc.)        |
+| DELETE | `/academic/tutor-profiles/{profile_id}` | Delete tutor profile                            |
+
 
 Sessions
-| Method | Endpoint                 | Description                                |
-| ------ | ------------------------ | ------------------------------------------ |
-| POST   | `/sessions/`             | Create a new session request               |
-| GET    | `/sessions/tutor/{id}`   | Get sessions belonging to a tutor          |
-| GET    | `/sessions/student/{id}` | Get sessions belonging to a student        |
-| PATCH  | `/sessions/{id}/status`  | Update session status (accept/reject/etc.) |
-
-
-# Sample Request
-## Create Tutor
-POST /tutors
-
-{
-
-  "name": "Nguyen Van A",
-  
-  "email": "tutor@example.com",
-  
-  "subjects": ["Math", "Physics"]
-  
-}
+| Method | Endpoint                                           | Description                                    |
+| ------ | -------------------------------------------------- | ---------------------------------------------- |
+| GET    | `/academic/class-sessions`                         | List sessions (filter by class_id, status)     |
+| GET    | `/academic/class-sessions/{session_id}`            | Get session details                            |
+| PATCH  | `/academic/class-sessions/{session_id}`            | Update session (start_time, end_time, status…) |
+| DELETE | `/academic/class-sessions/{session_id}`            | Delete a session                               |
+| POST   | `/academic/class-sessions`                         | Create new session                             |
+| PATCH  | `/academic/class-sessions/{session_id}/complete`   | Mark session as completed (tutor)              |
+| PATCH  | `/academic/class-sessions/{session_id}/processing` | Mark session as processing (tutor)             |
 
 # Installation
 pip install -r requirements.txt
