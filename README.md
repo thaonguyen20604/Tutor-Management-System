@@ -2,7 +2,6 @@
 A backend platform built with FastAPI to manage tutors, students, document verification, and scheduling.
 The system exposes a clean and scalable RESTful API for frontend and mobile applications.
 
----
 
 # Overview
 * The Tutor Management System supports the full workflow of a private tutoring service, including:
@@ -18,7 +17,7 @@ The system exposes a clean and scalable RESTful API for frontend and mobile appl
 * Secure authentication with JWT
 
 * Role-based access control (Admin, Tutor, Student)
----
+
 # Features
 ## Tutor Management
 * Create, update, and manage tutor profiles
@@ -48,14 +47,14 @@ The system exposes a clean and scalable RESTful API for frontend and mobile appl
 * Upload files via multipart/form-data
 
 * Track document status (pending, approved, rejected)
----
+
 # Architecture
 flowchart LR
   Client --> API[FastAPI Backend]
   API --> DB[(MySQL Database)]
   API --> FS[File Storage]
   API --> Auth[JWT Security Layer]
----
+
 # API Endpoints (Summary)
 /auth
   POST /login
@@ -88,13 +87,13 @@ POST /tutors
   "email": "tutor@example.com",
   "subjects": ["Math", "Physics"]
 }
----
+
 # Installation
 pip install -r requirements.txt
 uvicorn main:app --reload
 ## Access API docs:
 http://localhost:8000/docs
----
+
 # Future Enhancements
 * AI-based tutor recommendation
 
