@@ -18,7 +18,7 @@ The system exposes a clean and scalable RESTful API for frontend and mobile appl
 * Secure authentication with JWT
 
 * Role-based access control (Admin, Tutor, Student)
-
+---
 # Features
 ## Tutor Management
 * Create, update, and manage tutor profiles
