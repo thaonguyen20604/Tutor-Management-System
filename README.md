@@ -57,8 +57,6 @@ flowchart LR
   API --> Auth[JWT Security Layer]
 ---
 # API Endpoints (Summary)
-bash
-Copy code
 /auth
   POST /login
   POST /register
