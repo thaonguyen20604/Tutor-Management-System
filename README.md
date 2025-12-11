@@ -78,7 +78,7 @@ flowchart LR
   GET /tutor/{id}
   GET /student/{id}
   PATCH /{id}/status
----
+
 # Sample Request
 ## Create Tutor
 POST /tutors
