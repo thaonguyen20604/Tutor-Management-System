@@ -49,11 +49,15 @@ The system exposes a clean and scalable RESTful API for frontend and mobile appl
 * Track document status (pending, approved, rejected)
 
 # Architecture
-flowchart LR
+
   Client --> API[FastAPI Backend]
+  
   API --> DB[(MySQL Database)]
+  
   API --> FS[File Storage]
+  
   API --> Auth[JWT Security Layer]
+  
 
 # API Endpoints (Summary)
 Authentication
