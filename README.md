@@ -1,26 +1,3 @@
----
-project_name: tutor-management-system
-description: A backend platform for managing tutors, students, scheduling, and document verification workflows.
-framework:
-  - fastapi
-  - sqlalchemy
-database:
-  - mysql
-features:
-  - tutor-onboarding
-  - document-verification
-  - role-based-access-control
-  - scheduling
-  - student-management
-tags:
-  - backend
-  - rest-api
-  - tutor-system
-  - fastapi-project
-language:
-  - en
-license: mit
----
 # Tutor Management System
 A backend platform built with FastAPI to manage tutors, students, document verification, and scheduling.
 The system exposes a clean and scalable RESTful API for frontend and mobile applications.
