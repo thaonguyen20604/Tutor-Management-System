@@ -57,35 +57,58 @@ flowchart LR
 
 # API Endpoints (Summary)
 /auth
+
   POST /login
+  
   POST /register
+  
 
 /tutors
+
   GET /{id}
+  
   POST /
+  
   PUT /{id}
+  
   GET /pending
+  
   POST /{id}/approve
+  
   POST /{id}/reject
+  
 
 /documents
+
   POST /upload
+  
   GET /tutor/{id}
+  
   PATCH /{doc_id}/status
+  
 
 /sessions
+
   POST /
+  
   GET /tutor/{id}
+  
   GET /student/{id}
+  
   PATCH /{id}/status
 
 # Sample Request
 ## Create Tutor
 POST /tutors
+
 {
+
   "name": "Nguyen Van A",
+  
   "email": "tutor@example.com",
+  
   "subjects": ["Math", "Physics"]
+  
 }
 
 # Installation
