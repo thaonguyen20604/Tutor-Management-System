@@ -56,46 +56,39 @@ flowchart LR
   API --> Auth[JWT Security Layer]
 
 # API Endpoints (Summary)
-/auth
+Authentication
+| Method | Endpoint         | Description                     |
+| ------ | ---------------- | ------------------------------- |
+| POST   | `/auth/login`    | User login                      |
+| POST   | `/auth/register` | Create new user (Tutor/Student) |
 
-  POST /login
-  
-  POST /register
-  
-
-/tutors
-
-  GET /{id}
-  
-  POST /
-  
-  PUT /{id}
-  
-  GET /pending
-  
-  POST /{id}/approve
-  
-  POST /{id}/reject
   
 
-/documents
+Tutors
+| Method | Endpoint               | Description                              |
+| ------ | ---------------------- | ---------------------------------------- |
+| GET    | `/tutors/{id}`         | Get tutor details                        |
+| POST   | `/tutors/`             | Create tutor profile                     |
+| PUT    | `/tutors/{id}`         | Update tutor profile                     |
+| GET    | `/tutors/pending`      | Get list of tutors awaiting verification |
+| POST   | `/tutors/{id}/approve` | Approve tutor                            |
+| POST   | `/tutors/{id}/reject`  | Reject tutor                             |
 
-  POST /upload
-  
-  GET /tutor/{id}
-  
-  PATCH /{doc_id}/status
-  
+Documents
+| Method | Endpoint                     | Description                             |
+| ------ | ---------------------------- | --------------------------------------- |
+| POST   | `/documents/upload`          | Upload document (ID, certificate, etc.) |
+| GET    | `/documents/tutor/{id}`      | Get documents by tutor ID               |
+| PATCH  | `/documents/{doc_id}/status` | Update document status                  |
 
-/sessions
+Sessions
+| Method | Endpoint                 | Description                                |
+| ------ | ------------------------ | ------------------------------------------ |
+| POST   | `/sessions/`             | Create a new session request               |
+| GET    | `/sessions/tutor/{id}`   | Get sessions belonging to a tutor          |
+| GET    | `/sessions/student/{id}` | Get sessions belonging to a student        |
+| PATCH  | `/sessions/{id}/status`  | Update session status (accept/reject/etc.) |
 
-  POST /
-  
-  GET /tutor/{id}
-  
-  GET /student/{id}
-  
-  PATCH /{id}/status
 
 # Sample Request
 ## Create Tutor
